@@ -1,42 +1,45 @@
-# yamareco-profile-moreinfo
+# ヤマレコ プロフィール補足情報表示
 
-Tampermonkey userscript that enhances user profile pages on [Yamareco](https://www.yamareco.com/) by displaying additional personal information, notes, and links for specific users.
+ヤマレコのユーザープロフィールページに、事前に定義した補足情報（名前、SNSリンク、メモなど）を表示する Tampermonkey スクリプトです。
 
-## 📌 Features
+## 💡 機能
 
-- Adds custom info fields (e.g., name, notes, social media links) to Yamareco user profiles
-- Supports rich links with clickable URLs
-- Smart fallback: if display name is missing, it shows the URL itself
-- Lightweight and non-intrusive
-- Easy to configure per user
+- 指定したユーザーIDごとに補足情報を定義可能
+- 補足情報は、プロフィール表の冒頭または末尾に挿入
+- 表示項目はラベルと値（リンクの場合はリンク表示）
+- `Instagram`、`Facebook`、`YAMAP` などの外部リンクにも対応
 
-## 🚀 Installation
+## ⚙️ 利用方法
 
-1. Install [Tampermonkey](https://www.tampermonkey.net/) in your browser.
-2. [Click here to install the script](https://raw.githubusercontent.com/your-username/yamareco-profile-moreinfo/main/yamareco-profile-moreinfo.user.js)
-3. Customize the script by editing the `userData` object inside the code.
-
-## 🛠️ How to Customize
-
-Edit the script directly in Tampermonkey to add or update entries for each user:
+1. ブラウザー拡張機能の [Tampermonkey](https://www.tampermonkey.net/) をインストールしてください。
+2. Chrome の場合、拡張機能の管理画面の「デベロッパーモード」をONにしてください。
+3. Tampermonkey のダッシュボードから新規スクリプトを開き、userscript.js の内容をコピー＆ペーストしてください。
+4. スクリプト内の `userData` に表示したいユーザーIDと情報を編集・追加してください。
+5. 必要に応じて、補足情報の追加位置を `insertPosition` で指定します。（値は `before` または `after` を指定）
 
 ```js
 const userData = {
-  "1234": [
+  "12345": [
     {
-      label: "Name",
-      value: "Taro Yamada"
+      label: "名前",
+      value: "山田太郎"
     },
     {
-      label: "Memo",
-      value: "Met at Mt. Hirugatake summit on April 5, 2023."
+      label: "メモ",
+      value: "2024年3月に蛭ヶ岳で出会った。"
     },
     {
       label: "Instagram",
-      value: "Komorebi-kun",
-      url: "https://instagram.com/user/38495"
+      value: "taro_yama",
+      url: "https://instagram.com/taro_yama"
     }
-  ],
-  // Add more users by ID
+  ]
 };
 
+## 🛠️ 開発の経緯
+
+私自身、ヤマレコのユーザーといつどこでお会いしたのか忘れてしまうことがよくあります。また、ヤマレコのユーザー名が Facebook や YAMAP など他のSNSのユーザー名と異なるため、混乱することも多いです。
+
+そのため、「いつどこでお会いしたのか」「他のSNSのどのユーザーとつながっているのか」を一元管理できるデータベースのようなものが欲しいと考えました。ヤマレコのプロフィールページに補足情報を追加することで、これを実現できるのではないかと思い、このスクリプトを開発しました。
+
+このスクリプトを使うことで、他のユーザーとの再会時に話題をスムーズに共有できるようになると考えています。
