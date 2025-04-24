@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ヤマレコプロフィール補足情報表示
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/bunatree
 // @version      1.0.1
 // @description  ヤマレコのユーザープロフィールに補足情報を表示します
 // @author       Bunatree
