@@ -2,6 +2,8 @@
 
 ヤマレコのユーザープロフィールページに、事前に定義した補足情報（名前、SNSリンク、メモなど）を表示する Tampermonkey スクリプトです。
 
+メモ: YAMAP版はこちら ⇒ [yamap-profile-moreinfo](https://github.com/bunatree/yamap-profile-moreinfo)
+
 ## 💡 機能
 
 - ユーザーIDごとに補足情報を定義可能
